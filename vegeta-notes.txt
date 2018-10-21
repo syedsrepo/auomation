@@ -1,0 +1,43 @@
+Vegeta Traffic Generator Notes
+------------------------------
+
+https://github.com/tsenart/vegeta
+
+
+echo "GET http://localhost:5000" | ./vegeta attack -duration=1m  -header="sleep:30000"  -body=post_smaller.txt -rate=2000 -workers=500  | tee reports.bin | vegeta report
+
+ulimit -n 500000
+
+echo "GET http://localhost:5000" | ./vegeta attack -duration=1m  -rate=300 -timeout=300s | tee reports.bin | ./vegeta report
+
+
+
+syeds@syeds-VirtualBox:~/Downloads$ echo "GET http://192.168.56.102:5000" | ./vegeta attack -duration=1m  -rate=300 -timeout=300s | tee reports.bin | ./vegeta report
+Requests      [total, rate]            18000, 299.98
+Duration      [total, attack, wait]    1m0.452944593s, 1m0.003447077s, 449.497516ms
+Latencies     [mean, 50, 95, 99, max]  832.366022ms, 788.111555ms, 1.7604116s, 1.966511454s, 6.634726193s
+Bytes In      [total, mean]            504000, 28.00
+Bytes Out     [total, mean]            0, 0.00
+Success       [ratio]                  100.00%
+Status Codes  [code:count]             200:18000  
+Error Set:
+syeds@syeds-VirtualBox:~/Downloads$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
